@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "39475150550",
+    "project_id": "guriremoteconfig",
+    "storage_bucket": "guriremoteconfig.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:39475150550:android:02cd2b2c1520d89aa5d377",
+        "android_client_info": {
+          "package_name": "com.guri.guriremoteconfig"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_PxBQk4JOcLK_84lHEaZtFXdwrpx9wPk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
