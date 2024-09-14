@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultsMap>
+    <entry>
+        <key>one</key>
+        <value>This is from default string</value>
+    </entry>
+    <entry>
+        <key>two</key>
+        <value>2</value>
+    </entry>
+    <entry>
+        <key>three</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>four</key>
+        <value>4.0</value>
+    </entry>
+</defaultsMap>

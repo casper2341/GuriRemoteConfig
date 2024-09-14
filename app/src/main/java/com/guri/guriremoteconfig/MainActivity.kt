@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModelProvider
 import com.guri.guriremoteconfig.screens.RemoteConfigScreen
 import com.guri.guriremoteconfig.ui.theme.GuriRemoteConfigTheme
@@ -22,8 +21,14 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     val viewModel: RemoteConfigViewModel =
                         ViewModelProvider(this)[RemoteConfigViewModel::class.java]
-                    RemoteConfigScreen(modifier = Modifier
-                        .padding(innerPadding))
+                    val state = viewModel.uiState
+                    RemoteConfigScreen(
+                        modifier = Modifier
+                            .padding(innerPadding), state,
+                        triggerEvent = {
+                            viewModel.triggerEvent(UIEvent.UpdateText(it))
+                        }
+                    )
                 }
             }
         }

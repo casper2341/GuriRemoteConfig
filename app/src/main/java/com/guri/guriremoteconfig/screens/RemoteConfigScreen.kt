@@ -1,7 +1,7 @@
 package com.guri.guriremoteconfig.screens
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -21,10 +21,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.guri.guriremoteconfig.UIState
 import com.guri.guriremoteconfig.util.bounceClick
 
 @Composable
-fun RemoteConfigScreen(modifier: Modifier = Modifier) {
+fun RemoteConfigScreen(modifier: Modifier = Modifier, uiState: UIState, triggerEvent: (String) -> Unit) {
     Column(modifier = modifier.padding(16.dp)) {
         Text(
             text = "Guri Remote Config",
@@ -35,14 +36,14 @@ fun RemoteConfigScreen(modifier: Modifier = Modifier) {
             modifier = Modifier.fillMaxWidth()
         )
         Spacer(modifier = Modifier.padding(8.dp))
-        Text(text = "")
+        Text(text = uiState.text)
         Spacer(modifier = Modifier.padding(8.dp))
-        KeyPad()
+        KeyPad(triggerEvent = triggerEvent)
     }
 }
 
 @Composable
-fun KeyPad(modifier: Modifier = Modifier) {
+fun KeyPad(triggerEvent: (String) -> Unit) {
     val numbers = listOf(
         listOf("1", "2", "3"),
         listOf("4", "5", "6"),
@@ -72,6 +73,9 @@ fun KeyPad(modifier: Modifier = Modifier) {
                                 spotColor = Color.Black
                             )
                             .background(color = Color.Transparent)
+                            .clickable {
+                                triggerEvent(number)
+                            }
                     )
                 }
             }
