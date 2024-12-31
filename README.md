@@ -9,14 +9,10 @@ This project demonstrates how to use **Firebase Remote Config** in an Android ap
 - Fetch and display different data types (string, integer) from Firebase Remote Config.
 - A clean and simple POC showcasing practical usage of Firebase Remote Config.
 
----
-
 ## Project Structure
 
 - **UI Layer**: A single screen with buttons from 1 to 9. Each button fetches and displays a specific key-value pair from Firebase Remote Config.
 - **Firebase Setup**: Integration with Firebase services to utilize Remote Config functionality.
-
----
 
 ## How to Use This Project
 
@@ -25,8 +21,6 @@ This project demonstrates how to use **Firebase Remote Config** in an Android ap
 1. Android Studio (latest stable version recommended)
 2. Firebase Project setup in the [Firebase Console](https://console.firebase.google.com)
 3. Add your `google-services.json` file to the `app` directory.
-
----
 
 ### Setting Up Firebase Remote Config
 
@@ -49,47 +43,6 @@ This project demonstrates how to use **Firebase Remote Config** in an Android ap
 
 ---
 
-## Implementation Highlights
-
-### Firebase Remote Config
-
-1. **Initialization**:
-   Firebase Remote Config is initialized during the app's startup.
-
-   ```kotlin
-   val firebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
-   ```
-
-2. **Default Values**:
-   Set default values to ensure the app works without network connectivity.
-
-   ```kotlin
-   val defaultValues = mapOf(
-       "key1" to "Default String",
-       "key2" to 0,
-       "key3" to "Default Welcome Message"
-   )
-   firebaseRemoteConfig.setDefaultsAsync(defaultValues)
-   ```
-
-3. **Fetching Remote Values**:
-   Values are fetched and activated from the Firebase console:
-
-   ```kotlin
-   firebaseRemoteConfig.fetchAndActivate()
-       .addOnCompleteListener { task ->
-           if (task.isSuccessful) {
-               val updated = task.result
-               Log.d("Firebase", "Config params updated: $updated")
-           }
-       }
-   ```
-
-4. **Fetching Values on Button Clicks**:
-   Each button is mapped to a specific key. When clicked, it fetches and displays the associated value.
-
----
-
 ## UI Built with Jetpack Compose
 
 - Buttons numbered from 1 to 9.
@@ -102,21 +55,18 @@ This project demonstrates how to use **Firebase Remote Config** in an Android ap
 - Add more data types and keys to demonstrate Firebase Remote Config's versatility.
 - Enhance UI/UX for a production-ready feel.
 - Integrate caching and fallback mechanisms.
+- Setting initialization in App Startup.
 
 ---
 
 ## Screenshots
 
-> Add screenshots of the app screen here.
+> Coming Soon.
 
 ---
 
-## Contributing
+## Contributing and Issues
 
-Feel free to fork the project and contribute. PRs are welcome!
+Feel free to fork the project and contribute. PRs are welcome!. If you find any issue you can create an issue.
 
 ---
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
